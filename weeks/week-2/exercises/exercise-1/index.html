@@ -54,6 +54,13 @@
       makeover and showing off your knack for using advanced CSS tricks and
       making the DOM dance a little.
     </p>
-    <script src="./index.js" type="module"></script>
+    <script>
+      function themeClick() {
+        alert("hello");
+      }
+      const inputs = document.getElementsByName("theme").addEventListener("click", themeClick);
+      console.log(inputs);
+      
+    </script>
   </body>
 </html>
