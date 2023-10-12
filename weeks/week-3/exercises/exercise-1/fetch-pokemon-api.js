@@ -22,6 +22,7 @@ const types = document.getElementById("types");
 //    HINT --> Don't forget to invoke the function
 
 const fetchPokemons = async () => {
+<<<<<<< HEAD
   const url = "https://pokeapi.co/api/v2/pokemon/?limit=120"
 
   fetch(url)
@@ -32,7 +33,7 @@ const fetchPokemons = async () => {
       console.log(data.results[0].name)
       data.results.forEach((item) => console.log(item.name) )
     })
-
+=======
   /*Fetch all pokemons here*/
   let shortUrl = "https://pokeapi.co/api/v2/pokemon";
   let longUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
@@ -46,7 +47,7 @@ const fetchPokemons = async () => {
         })
         .catch((error) => console.log(error))
   );
-
+>>>>>>> upstream/main
 };
 
 
@@ -133,7 +134,7 @@ const fetchPokemonsTryCatch = async () => {
 //    function (change the function's name to fit your pokemon).
 //    Log the data in the console and see what you find.
 
-
+<<<<<<< HEAD
 const fetchElectrodeData = async () => {
   const url = "https://pokeapi.co/api/v2/pokemon/101/";
   fetch(url)
@@ -141,10 +142,11 @@ const fetchElectrodeData = async () => {
   .then((data ) => {
   })
 };
-
+=======
 const fetchCharizardData = async () => {
   try {
     let pokemonById = "https://pokeapi.co/api/v2/pokemon/6/";
+>>>>>>> upstream/main
 
     const responseFromApi = await fetch(pokemonById);
     const individualPokemon = await responseFromApi.json();
