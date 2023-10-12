@@ -22,10 +22,62 @@ const types = document.getElementById("types");
 //    HINT --> Don't forget to invoke the function
 
 const fetchPokemons = async () => {
-  /*Fetch all pokemons here*/
+  const url = "https://pokeapi.co/api/v2/pokemon/?limit=120"
 
+  fetch(url)
+    .then((response) => response.json())
+    .then((data ) => {
+      console.log(data)
+      console.log(data.results)
+      console.log(data.results[0].name)
+      data.results.forEach((item) => console.log(item.name) )
+    })
 };
-//fetchPokemons();
+
+
+const fetchPokemonsTest = async () => {
+  const url = "https://pokeapi.co/api/v2/pokemon/?limit=120"
+
+  // this returns a promise at first and then once completed the result of the fetch call as the return value for the function fetchPokemonsTest
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data ) => {
+      // this returns "data.results" as the output of the fetch call.
+      return data.results
+    })
+};
+
+// Version 1 of our test
+fetchPokemonsTest()
+  // when we evoke this function it first returns a promise. Once that promise has been resolved .then is triggered and we console.log
+  .then ((pokemonsV1) => {
+    console.log('v1', pokemonsV1)
+  });
+
+// Version 2 of our test
+const pokemonsV2 = fetchPokemonsTest();
+console.log('v2', pokemonsV2)
+// if we run it we can see that V2 was console logged before v1. Because we are not telling the program to stop and wait it just grabs whats returned from fetchPokemonsTest() and outputs it. In this case a promise.
+
+// Version 3 of our test
+// const pokemonsV3 = await fetchPokemonsTest();
+// console.log('v3', pokemonsV3)
+// This will fail as await is not supported outside of a async function.
+
+
+// Version 4 of our test (We need to comment out the pokemonsV3 call to get our script to resume to here)
+// here we declare a test function as async and then 
+const testV4 = async () => {
+  // we call our fetchPokemonsTest function with await meaning that our const is not declared until fetchPokemonsTest has delivered its promise.
+  const pokemonsV4 = await fetchPokemonsTest();
+  // We output our const
+  console.log('v4', pokemonsV4);
+}
+testV4();
+
+
+console.log("Running fetch");
+fetchPokemons();
 
 // 2) a) As you can see, we get some metadata as well as
 //    the results of the fetch. Change the console.log so
@@ -49,8 +101,12 @@ const fetchPokemons = async () => {
 //    function (change the function's name to fit your pokemon).
 //    Log the data in the console and see what you find.
 
-const fetchCharizardData = async () => {
-  
+const fetchElectrodeData = async () => {
+  const url = "https://pokeapi.co/api/v2/pokemon/101/";
+  fetch(url)
+  .then((response) => response.json())
+  .then((data ) => {
+  })
 };
 
 // 5) After familiarizing with the data, we will use the data
